@@ -6,7 +6,7 @@ Help:
 Make sure the medium folder is in the same folder as the knownToMedium.py file.
 
 1. Insert URL of your Known posts
-  It should look something like https://yourdomain.com/content/posts/
+  It should look something like https://yourdomain.com/content/posts/.
   Copy the URL in knownToMedium.py (known_posts_url). Be careful to include the "/" at the end.
 
 2. Insert Medium integration token
@@ -17,7 +17,7 @@ Make sure the medium folder is in the same folder as the knownToMedium.py file.
 3. Insert Medium app credentials
   From the Medium settings menu, go to 'Manage applications' and create a new app.
   Copy the generated 'Client ID' code in knownToMedium.py (client_id).
-  Copy the generated 'Client Secret' code in knownToMedium.py (client_secret)
+  Copy the generated 'Client Secret' code in knownToMedium.py (client_secret).
 
 By default, Medium creates post drafts. You still have to manually confirm publication.
 
