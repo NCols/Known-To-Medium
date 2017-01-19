@@ -1,7 +1,7 @@
 ## This is a tool that allows users to easily cross-post their Known posts to their Medium account.
 
 Help:
-    python knownToMedium.py -h
+> python knownToMedium.py -h
 
 Make sure the medium folder is in the same folder as the knownToMedium.py file.
 
