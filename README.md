@@ -24,3 +24,7 @@ To directly publish the Medium post, use "-t public".
 
 You're ready to go!
 
+
+To do:
+Create a storage file for the app credentials, site url and integration token.
+
