@@ -1,5 +1,7 @@
 ## This is a tool that allows users to easily cross-post their Known posts to their Medium account.
 
+Attention: this is designed to work with Known posts only, statuses, bookmarks etc. have not been tested.
+
 Help:
 > python knownToMedium.py -h
 
