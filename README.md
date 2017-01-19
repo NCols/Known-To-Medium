@@ -20,7 +20,7 @@ Copy the generated 'Client ID' code in knownToMedium.py (client_id).
 Copy the generated 'Client Secret' code in knownToMedium.py (client_secret)
 
 By default, Medium creates post drafts. You still have to manually confirm publication.
-To directly publish the Medium post, use "-d public".
+To directly publish the Medium post, use "-t public".
 
 You're ready to go!
 
