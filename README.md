@@ -23,7 +23,7 @@ Make sure the medium folder is in the same folder as the knownToMedium.py file.
 
 By default, Medium creates post drafts. You still have to manually confirm publication.
 
-To directly publish the Medium post, use "-t public".
+To directly publish instead of creating a draft, use "-t public".
 
 You're ready to go!
 
