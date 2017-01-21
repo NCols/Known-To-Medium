@@ -4,11 +4,13 @@ from medium import Client
 import requests
 import argparse
 import sys
+import json
+import os
 
-known_posts_url= "XXXXXXXXXXX"
-integration_token = "XXXXXXXXXXX"
-client_id = "XXXXXXXXXXX"
-client_secret = "XXXXXXXXXXX"
+known_posts_url= ""
+integration_token = ""
+client_id = ""
+client_secret = ""
 
 #Configure help and options
 parser = argparse.ArgumentParser(description='Tool to cross-post from Known to Medium')
@@ -21,9 +23,29 @@ args = parser.parse_args()
 post_type = "draft"
 if args.type == "public":
 	post_type = "public"
-elif args.type != "public" and args.type != "draft":
-	print("The post type must be either \"draft\" or \"public\". If left blank, \"draft\" will be used.")
-	sys.exit()
+
+if os.path.exists("./variables.json"):
+	with open("variables.json","r") as file:
+		credentials_loaded = json.load(file)
+	known_posts_url = credentials_loaded['known_posts_url']
+	integration_token = credentials_loaded['integration_token']
+	client_id = credentials_loaded['client_id']
+	client_secret = credentials_loaded['client_secret']
+	print('Credentials loaded')
+else:
+	print("You have not set the connection variables yet. Please copy paste the required information here under:")
+	credentials = {}
+	credentials['known_posts_url']= input("What is the URL of the posts section on your Known platform? >>> ")
+	credentials['integration_token'] = input("What is your integration token? >>>")
+	credentials['client_id'] = input("What is your Client ID? >>>")
+	credentials['client_secret'] = input("What is your Client Secret? >>>")
+	with open("variables.json", "w") as file:
+		json.dump(credentials,file,indent=2)
+	known_posts_url = credentials['known_posts_url']
+	integration_token = credentials['integration_token']
+	client_id = credentials['client_id']
+	client_secret = credentials['client_secret']
+	print("Creds stored to file")
 
 #Functionalities to add:
 #Options to:
@@ -71,7 +93,7 @@ def publishLastPost():
 	rss_title = feed.entries[0].title
 	rss_text = feed.entries[0].description
 	#Publish on Medium
-	post = client.create_post(user_id=user["id"], title=rss_title, content=rss_text, content_format="html", publish_status=post_type)	
+	post = client.create_post(user_id=user["id"], title=rss_title, content=rss_text, content_format="html", publish_status=post_type)
 	print("Post created: " + post['url'])
 
 #Check if user has not entered more than one flag, and if not, execute
