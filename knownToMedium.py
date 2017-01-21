@@ -24,6 +24,7 @@ post_type = "draft"
 if args.type == "public":
 	post_type = "public"
 
+#Check if connection variables file exists, if yes, loads the data, if not, asks for the credentials and stores them in a file
 if os.path.exists("./variables.json"):
 	with open("variables.json","r") as file:
 		credentials_loaded = json.load(file)
@@ -46,11 +47,6 @@ else:
 	client_id = credentials['client_id']
 	client_secret = credentials['client_secret']
 	print("Creds stored to file")
-
-#Functionalities to add:
-#Options to:
-# - Choose if direct post or draft
-# - Manually go through and validate every post before cross-publishing
 
 rss_feed_url = known_posts_url + "?_t=rss"
 
